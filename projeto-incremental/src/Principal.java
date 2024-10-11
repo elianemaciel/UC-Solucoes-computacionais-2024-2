@@ -17,6 +17,7 @@ public class Principal {
 
             opcao = sc.nextInt();
 
+            
             switch (opcao) {
                 case 1:
                     System.out.println(c.consultarLimite());
