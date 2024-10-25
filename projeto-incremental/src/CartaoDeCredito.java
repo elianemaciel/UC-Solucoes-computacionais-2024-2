@@ -1,9 +1,40 @@
 public class CartaoDeCredito {
-    int numero;
-    String nomeTitular;
-    String cpf;
-    double limite;
-    double totalFatura;
+    private int numero;
+    private String nomeTitular;
+    private String cpf;
+    private double limite;
+    private double totalFatura;
+
+    public int getNumero() {
+        return this.numero;
+    }
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+    public String getNomeTitular() {
+        return this.nomeTitular;
+    }
+    public void setNomeTitular(String nome) {
+        this.nomeTitular = nome;
+    }
+    public String getCpf() {
+        return this.cpf;
+    }
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+    public double getLimite() {
+        return this.limite;
+    }
+    public void setLimite(double limite) {
+        this.limite = limite;
+    }
+    public double getTotalFatura() {
+        return this.totalFatura;
+    }
+    public void setTotalFatura(double total) {
+        this.totalFatura = total;
+    }
 
     public double consultarLimite(){
         return limite;
@@ -15,8 +46,10 @@ public class CartaoDeCredito {
 
     public void realizarCompra(double valor) {
         if (valor <= this.limite){
-            this.limite -= valor;
-            this.totalFatura += valor;
+            double limiteAnterior = this.getLimite()
+            this.setLimite(limiteAnterior - valor);
+            double total = this.getTotalFatura();
+            this.setTotalFatura(total + valor);
         } else {
             System.out.println("Você não possui limite necessario para essa compra");
         }
