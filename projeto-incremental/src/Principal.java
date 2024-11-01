@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Principal {
     public static void main(String[] args) {
-        CartaoDeCredito c = new CartaoDeCredito();
+        CartaoDeCredito c = new CartaoDeCredito(123, "Eliane", "12312352636");
         c.setCpf("12312352636");
         c.setLimite(100);
         Scanner sc = new Scanner(System.in);
