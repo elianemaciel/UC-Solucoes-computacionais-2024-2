@@ -4,6 +4,24 @@ public class CartaoDeCredito {
     private String cpf;
     private double limite;
     private double totalFatura;
+    private double cashback;
+
+    public CartaoDeCredito (int numero, String nomeTitular, String cpf) {
+        this.numero = numero;
+        this.nomeTitular = nomeTitular;
+        this.cpf = cpf;
+        this.limite = 100;
+        this.totalFatura = 0;
+    }
+
+    public CartaoDeCredito (int numero, String nomeTitular, String cpf, double limite, double cashback) {
+        this.numero = numero;
+        this.nomeTitular = nomeTitular;
+        this.cpf = cpf;
+        this.limite = limite;
+        this.totalFatura = 0;
+        this.cashback = cashback;
+    }
 
     public int getNumero() {
         return this.numero;
