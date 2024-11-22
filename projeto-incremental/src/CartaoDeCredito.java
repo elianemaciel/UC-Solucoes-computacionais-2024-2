@@ -1,21 +1,21 @@
 public class CartaoDeCredito {
     private int numero;
     private Cliente titular;
-    private double limite;
+    protected double limite;
     private double totalFatura;
-    private double cashback;
 
-    public CartaoDeCredito (int numero, String nomeTitular, String cpf) {
+    public CartaoDeCredito (int numero, Cliente titular) {
         this.numero = numero;
         this.limite = 100;
         this.totalFatura = 0;
+        this.titular = titular;
     }
 
-    public CartaoDeCredito (int numero, String nomeTitular, String cpf, double limite, double cashback) {
+    public CartaoDeCredito (int numero, double limite, Cliente titular) {
         this.numero = numero;
         this.limite = limite;
         this.totalFatura = 0;
-        this.cashback = cashback;
+        this.titular = titular;
     }
 
     public int getNumero() {
@@ -51,19 +51,6 @@ public class CartaoDeCredito {
             this.setLimite(limiteAnterior - valor);
             double total = this.getTotalFatura();
             this.setTotalFatura(total + valor);
-        } else {
-            System.out.println("Você não possui limite necessario para essa compra");
-        }
-    }
-
-    public void realizarCompra(double valor, boolean cashback) {
-        if (valor <= this.limite && cashback){
-            double percentCashback = (valor/100) * this.cashback;
-            double valorCompra = valor - percentCashback;
-            double limiteAnterior = this.getLimite();
-            this.setLimite(limiteAnterior - valorCompra);
-            double total = this.getTotalFatura();
-            this.setTotalFatura(total + valorCompra);
         } else {
             System.out.println("Você não possui limite necessario para essa compra");
         }
